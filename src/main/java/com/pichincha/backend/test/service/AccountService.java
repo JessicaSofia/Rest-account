@@ -8,13 +8,13 @@ import com.pichincha.backend.test.model.Transaction;
 import com.pichincha.backend.test.repository.AccountRepository;
 import com.pichincha.backend.test.repository.TransactionRepository;
 
-import net.bytebuddy.dynamic.loading.ClassInjector.UsingReflection.Dispatcher.Direct;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -64,12 +64,13 @@ public class AccountService {
 			
 		if(accountRepository.existsById(accountId)) {
 		
-			Transaction nuevo = newTransactionDto.
-			transactionRepository.save(newTransactionDto);
+			LocalDateTime date = LocalDateTime.now();
+			Transaction nuevo =  new Transaction(newTransactionDto.getAccountId(), newTransactionDto.getType(), newTransactionDto.getComment(), date);
+			transactionRepository.save(nuevo);
 		}
 		else
 		{
-			
+			throw new IllegalArgumentException();
 		
 		}
 			

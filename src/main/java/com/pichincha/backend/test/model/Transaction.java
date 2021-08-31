@@ -1,8 +1,6 @@
 package com.pichincha.backend.test.model;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +20,6 @@ public class Transaction {
 	
 	private  String comment;
 	
-	private BigDecimal  monto;
 	private LocalDateTime creationDate;
 	
 	public Long getId() {
@@ -57,19 +54,19 @@ public class Transaction {
 		this.comment = comment;
 	}
 
-	public BigDecimal getMonto() {
-		return monto;
-	}
-
-	public void setMonto(BigDecimal monto) {
-		this.monto = monto;
-	}
-
 	public LocalDateTime getCreationDate() {
 		return creationDate;
 	}
 
 	public void setCreationDate(LocalDateTime creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public Transaction(Long accountId, String type, String comment, LocalDateTime creationDate) {
+		super();
+		this.accountId = accountId;
+		this.type = type;
+		this.comment = comment;
 		this.creationDate = creationDate;
 	}
 
