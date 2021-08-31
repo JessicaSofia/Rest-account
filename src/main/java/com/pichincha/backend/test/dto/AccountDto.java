@@ -2,18 +2,26 @@ package com.pichincha.backend.test.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
 @Getter
-@Setter
 public class AccountDto {
 
-	private final String number;
+	private  String number;
 
-	private final String type;
+	private  String type;
 
-	private final LocalDateTime creationDate;
+	private  LocalDateTime creationDate;
+
+	
+
+	public AccountDto(String number, String type, LocalDateTime creationDate) {
+		
+		this.number = number;
+		this.type = type;
+		this.creationDate = creationDate;
+	}
 
 }

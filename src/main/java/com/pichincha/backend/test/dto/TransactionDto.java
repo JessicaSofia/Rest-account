@@ -6,15 +6,26 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
-
+@Getter
 public class TransactionDto {
 
-	private final Long id;
+	private  Long id;
 
-	private final String comment;
+	private  String comment;
 
-	private final String type;
+	private  String type;
 
-	private final LocalDateTime creationDate;
+	private  LocalDateTime creationDate;
+
+	public TransactionDto(Long id, String comment, String type, LocalDateTime creationDate) {
+		super();
+		this.id = id;
+		this.comment = comment;
+		this.type = type;
+		this.creationDate = creationDate;
+	}
+	
+	
+	
 
 }
